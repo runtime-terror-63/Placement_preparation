@@ -1,12 +1,7 @@
 
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <bits/stdc++.h>
 
 using namespace std;
-
-// TreeNode struct represents
-// a node in a binary tree
 struct TreeNode
 {
   int val;
