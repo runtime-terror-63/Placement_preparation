@@ -1,28 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool func(int ind, int sum, vector<int> &ds, vector<vector<int>> &ans, int k, vector<int> &arr, int n)
+void func(int ind, int sum, vector<int> &ds, vector<vector<int>> &ans, int k, vector<int> &arr, int n)
 {
+
   if (ind == n)
   {
     if (sum == k)
     {
+
       for (auto it : ds)
         cout << it << " ";
       cout << endl;
-      return true;
     }
-    else
-      return false;
+    return;
   }
+
   ds.push_back(arr[ind]);
-  if (func(ind + 1, sum + arr[ind], ds, ans, k, arr, n) == true)
-    return true;
+  func(ind + 1, sum + arr[ind], ds, ans, k, arr, n);
+
   ds.pop_back();
   // not pick
-  if (func(ind + 1, sum, ds, ans, k, arr, n) == true)
-    return true;
-  return false;
+  func(ind + 1, sum, ds, ans, k, arr, n);
 }
 int main()
 {
