@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// TC = O(d) + O(n-d) + O(d) = O(n+d)
+// sc = O(d)
 void leftRoate(vector<int> arr, int n, int d)
 {
   d %= n;
@@ -16,6 +17,20 @@ void leftRoate(vector<int> arr, int n, int d)
     cout << arr[i];
 }
 
+//TC - O(2n)
+//Sc - O(1)
+
+void left_rotate(vector<int> arr, int n, int d)
+{
+  d %= n;
+  reverse(arr.begin(), arr.begin() + d); // O(d)
+  reverse(arr.begin() + d, arr.end());  // O(n-d) 
+  reverse(arr.begin(), arr.end());    // O(n)
+
+  for (int i = 0; i < n; i++)
+    cout << arr[i];
+}
+
 int main()
 {
   int n;
@@ -25,5 +40,5 @@ int main()
     cin >> arr[i];
   int d;
   cin >> d;
-  leftRoate(arr, n, d);
+  left_rotate(arr, n, d);
 }
