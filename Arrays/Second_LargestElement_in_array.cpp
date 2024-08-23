@@ -49,6 +49,28 @@ int sec_lar(vector<int> arr, int n)
   return sec_lar;
 }
 
+// TC - O(N)
+// SC - O(1)
+
+int sec_larg(vector<int> arr, int n)
+{
+  int largest = arr[0];
+  int sec_largest = -1;
+  for (int i = 1; i < n; i++)
+  {
+    if (arr[i] > largest)
+    {
+      sec_largest = largest;
+      largest = arr[i];
+    }
+    else if (arr[i] < largest && arr[i] > sec_largest)
+    {
+      sec_largest = arr[i];
+    }
+  }
+  return sec_largest;
+}
+
 int main()
 {
   int n;
@@ -56,5 +78,6 @@ int main()
   vector<int> arr(n);
   for (int i = 0; i < n; i++)
     cin >> arr[i];
-  cout << sec_largest(arr, n);
+  cout << sec_larg(arr, n);
 }
+
