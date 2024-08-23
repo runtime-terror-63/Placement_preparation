@@ -10,6 +10,10 @@ Explanation:
 
 #include <bits/stdc++.h>
 using namespace std;
+
+// TC - O(NlogN) + O(N)
+// SC - O(N)
+
 int sec_largest(vector<int> arr, int n)
 {
   sort(arr.begin(), arr.end());
@@ -24,6 +28,27 @@ int sec_largest(vector<int> arr, int n)
 
   return sec_largest;
 }
+
+// TC - O(N) + O(N)
+// SC - O(1)
+int sec_lar(vector<int> arr, int n)
+{
+  int Larg = INT_MIN;
+  int sec_lar = INT_MIN;
+  for (int i = 0; i < n; i++)
+  {
+    if (arr[i] > Larg)
+      Larg = arr[i];
+  }
+
+  for (int i = 0; i < n; i++)
+  {
+    if (arr[i] > sec_lar && arr[i] != Larg)
+      sec_lar = arr[i];
+  }
+  return sec_lar;
+}
+
 int main()
 {
   int n;
