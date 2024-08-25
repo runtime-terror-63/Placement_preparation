@@ -64,4 +64,5 @@ int main()
   for (int i = 0; i < n; i++)
     cin >> arr[i];
   sort_array_Os_1s_2s(arr, n);
+  sort_array(arr, n);
 }
