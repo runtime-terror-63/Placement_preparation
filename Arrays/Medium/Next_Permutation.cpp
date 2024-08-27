@@ -1,60 +1,52 @@
-
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 #include <bits/stdc++.h>
 using namespace std;
-
-vector<int> nextGreaterPermutation(vector<int> &A) {
-    int n = A.size(); // size of the array.
-
-    // Step 1: Find the break point:
-    int ind = -1; // break point
-    for (int i = n - 2; i >= 0; i--) {
-        if (A[i] < A[i + 1]) {
-            // index i is the break point
-            ind = i;
-            break;
-        }
-    }
-
-    // If break point does not exist:
-    if (ind == -1) {
-        // reverse the whole array:
-        reverse(A.begin(), A.end());
-        return A;
-    }
-
-    // Step 2: Find the next greater element
-    //         and swap it with arr[ind]:
-
-    for (int i = n - 1; i > ind; i--) {
-        if (A[i] > A[ind]) {
-            swap(A[i], A[ind]);
-            break;
-        }
-    }
-
-    // Step 3: reverse the right half:
-    reverse(A.begin() + ind + 1, A.end());
-
-    return A;
+//TC - O(N*N!);
+//SC - O(1)
+void nxt_permutaion(vector<int> arr, int n)
+{
+  next_permutation(arr.begin(), arr.end());
+  for (int i = 0; i < n; i++)
+    cout << arr[i] << " ";
 }
 
+//TC - O(3n)
+//SC - O(1)
+
+void nextPermutation(vector<int> &nums)
+{
+  int ind = -1;
+  for (int i = nums.size() - 2; i >= 0; i--)
+  {
+    if (nums[i] < nums[i + 1])
+    {
+      ind = i;
+      break;
+    }
+  }
+  if (ind == -1)
+  {
+    reverse(nums.begin(), nums.end());
+    return;
+  }
+  for (int i = nums.size() - 1; i > ind; i--)
+  {
+    if (nums[i] > nums[ind])
+    {
+      swap(nums[i], nums[ind]);
+      break;
+    }
+  }
+
+  reverse(nums.begin() + ind + 1, nums.end());
+  for (int i = 0; i < nums.size(); i++)
+    cout << nums[i] << " ";
+}
 int main()
 {
-    vector<int> A = {2, 1, 5, 4, 3, 0, 0};
-    vector<int> ans = nextGreaterPermutation(A);
-
-    cout << "The next permutation is: [";
-    for (auto it : ans) {
-        cout << it << " ";
-    }
-    cout << "]n";
-    return 0;
+  int n;
+  cin >> n;
+  vector<int> arr(n);
+  for (int i = 0; i < n; i++)
+    cin >> arr[i];
+  nxt_permutaion(arr, n);
 }
-
-
