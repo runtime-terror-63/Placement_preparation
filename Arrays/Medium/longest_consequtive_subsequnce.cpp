@@ -55,7 +55,7 @@ int longest_consequtibe_subsec(vector<int> &arr, int n)
   return largest;
 }
 
-// OPTIMAL
+// MOST OPTIMAL  GOOGLE INTERVIEW
 // TC - O(N) + O(2*N)
 // SC - O(N)
 int lon_consecutive_subsequence(vector<int> &arr, int n)
