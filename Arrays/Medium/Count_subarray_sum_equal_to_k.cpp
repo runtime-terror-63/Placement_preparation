@@ -41,6 +41,8 @@ int countsubarray_sum(vector<int> arr, int n, int target)
   return cnt;
 }
 
+//TC - O(N * log N)
+//SC - O(N)
 int countSubarraySum(vector<int> arr, int n, int k)
 {
   unordered_map<int, int> mpp;
